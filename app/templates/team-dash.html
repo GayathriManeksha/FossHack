@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />    
+    <title>Team Dashboard</title>
+</head>
+<body>
+
+  <!-- <div id="user-info" class="user-info-sidebar">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      
+      <label for="roll">Roll:</label>
+      <input type="text" id="roll" name="roll">
+      
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone">
+      
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea>
+      
+      <button type="submit">Save Changes</button>
+    </form>
+  </div> -->
+
+<div class='app'>
+  <header class="project-info-header">
+    <button id="user-icon" class="edit-profile-button"><i class="fa fa-user-edit"></i></button>
+
+    <h1>Project : XYZ</h1>
+    <a href="#" class="exit-button"><i class="fas fa-sign-out-alt"></i></a>
+  </header>
+    <main class='project'>
+      
+      <div class='project-tasks'>
+        <div class='project-column-pending' ondrop="drop(event)" ondragover="allowDrop(event)">
+          <div class='project-column-heading'>
+            <h2 class='project-column-heading__title'>Pending Tasks</h2>
+          </div>
+          <div class='task' draggable='true' ondragstart="drag(event)" id="task3" data-column="Pending">
+            <div class='task__tags'><span class='task__tag task__tag--copyright'>Task 3</span></div>
+            <p>This is a random task!</p>
+            <div class='task__stats'>
+              <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i> Nov 24</time></span>
+            </div>
+          </div>
+          <div class='task' draggable='true' ondragstart="drag(event)" id="task1" data-column="Pending"v>
+            <div class='task__tags'><span class='task__tag task__tag--copyright'>Task 1</span></div>
+            <p>This is one more random task!</p>
+            <div class='task__stats'>
+              <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i> Nov 20</time></span>
+            </div>
+          </div> 
+          <div class='task' draggable='true' ondragstart="drag(event)" id="task2" data-column="Pending">
+            <div class='task__tags'><span class='task__tag task__tag--copyright'>Task 2</span></div>
+            <p>This is yet another random task!</p>
+            <div class='task__stats'>
+              <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i> Nov 10</time></span>
+            </div>
+          </div> 
+          <div class='task' draggable='true' ondragstart="drag(event)" id="task4" data-column="Pending">
+            <div class='task__tags'><span class='task__tag task__tag--copyright'>Task 4</span></div>
+            <p>This is another random task!</p>
+            <div class='task__stats'>
+              <span><time datetime="2021-11-24T20:00:00"><i class="fas fa-flag"></i> Dec 14</time></span>
+            </div>
+          </div>   
+        </div>
+        <div class='project-column' ondrop="drop(event)" ondragover="allowDrop(event)"><div class='project-column-heading'>
+            <h2 class='project-column-heading__title'>In Progress</h2>
+          </div>
+          
+          </div>
+
+        <div class='project-column' ondrop="drop(event)" ondragover="allowDrop(event)"><div class='project-column-heading'>
+            <h2 class='project-column-heading__title'>Completed</h2>
+          </div>
+        
+          
+
+          </div>
+        
+      </div>
+    </main>
+  </div>
+  <script>
+        // Get all the tasks
+        const tasks = document.querySelectorAll('.task');
+
+        // Add event listeners to each task to enable dragging
+        tasks.forEach(task => {
+          task.addEventListener('dragstart', dragStart);
+          task.addEventListener('dragend', dragEnd);
+        });
+
+        // Get all the columns
+        const columns = document.querySelectorAll('.project-column');
+
+        // Add event listeners to each column to enable dropping
+        columns.forEach(column => {
+          column.addEventListener('dragover', dragOver);
+          column.addEventListener('dragenter', dragEnter);
+          column.addEventListener('dragleave', dragLeave);
+          column.addEventListener('drop', drop);
+        });
+
+        // Define variables to store the dragged task and its original column
+        let draggedTask = null;
+        let originColumn = null;
+
+        function dragStart() {
+          // Set the dragged task and its original column
+          draggedTask = this;
+          originColumn = this.parentElement;
+          // Add the 'dragging' class to the dragged task
+          this.classList.add('dragging');
+        }
+
+        function dragEnd() {
+          // Remove the 'dragging' class from the dragged task
+          this.classList.remove('dragging');
+        }
+
+        function dragOver(e) {
+          e.preventDefault();
+        }
+
+        function dragEnter(e) {
+          e.preventDefault();
+          // Add the 'over' class to the column being entered
+          this.classList.add('over');
+        }
+
+        function dragLeave() {
+          // Remove the 'over' class from the column being left
+          this.classList.remove('over');
+        }
+
+        function drop() {
+          // Remove the 'over' class from the column being dropped onto
+          this.classList.remove('over');
+          // Move the dragged task to the dropped column
+          this.appendChild(draggedTask);
+          // Update the 'data-column' attribute of the dragged task to the title of the dropped column
+          let column = this.target.querySelector('h2').textContent.toLowerCase().replace(' ', '');
+          draggedTask.setAttribute('data-column', column);
+        }
+
+    
+
+  </script>
+</body>
+</html>
