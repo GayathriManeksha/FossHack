@@ -1,0 +1,86 @@
+.div3{
+    margin-left: 3rem;
+    display: grid;    
+    grid-template-columns: auto auto; 
+    row-gap: 20px;
+    column-gap: 1px;
+    color: white;  
+}
+.div1{
+    height: 100vh;
+    width: 100vh;  
+    color: white; 
+}
+.div2{
+    height: 100vh;
+    width: 100vh; 
+    color: white;  
+}
+.a{
+    background-color:  #443C68;
+    width: 12rem;
+    height: 2rem; 
+    border-radius: 2%;
+    margin: 30px;
+    text-align: center;
+    color: white; 
+}
+.b{
+    background-color: #635985;
+    width: 18rem;
+    height: 2rem; 
+    border-radius: 2%;
+    margin: 30px;
+    color: white; 
+}
+.add{
+    background-color:  #393053;
+    width: 6rem;
+    height: 1.75rem;
+    border-color: transparent;
+    border-radius: 1rem;
+    margin-left: 33rem;
+    color: white; 
+}
+.body{
+    display: flex;    
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    color: white; 
+}
+.container { 
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    color: white; 
+    background-color: rgb(197, 170, 222);
+    border-color: #635985;
+}
+input[type=text], input[type=password] {
+    box-sizing: border-box; 
+    width: 500px;
+    height: 35px; 
+    color: white; 
+    border: 2px solid black;
+    border-radius: 10px;
+    border-color: #635985;
+    background: none;
+}
+.save{ 
+    width: 50px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: none;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: white; 
+    border-color: #635985;
+}
