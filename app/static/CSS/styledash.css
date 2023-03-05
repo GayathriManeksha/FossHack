@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+.body{
+    background-color: #18122B;
+}
+.small{
+    /* background-color: aqua; */
+    height: 3rem;
+}
+.big{
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+.one{
+    /* background-color: beige; */
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.nave{
+    width: 20%;
+}
+.heading{
+    font-family: "Poppins", sans-serif;
+    font-size: 120%;
+    color: white;
+    margin-bottom: 1rem;
+    padding: 15%;
+    font-weight: 15;
+    text-decoration: none;
+}
+.two{
+    /* background-color: bisque; */
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.task{
+    /* background-color: blue; */
+    height: 100%;
+    width: 30%;
+}
+.vl{
+    background-color: #635985;
+    width: 0.1rem;
+    height: 100%;
+}
+.x{
+    /* background-color: brown; */
+    height: 50%;
+
+}
+.y{
+    /* background-color: slategray; */
+    height: 50%;
+}
+.z{
+    /* background-color: brown; */
+    height: 50%;
+}
+.w{
+    /* background-color: slategray; */
+    height: 50%;
+}
+.hl{
+    background-color: #635985;
+    width: 100%;
+    height:  0.1rem;
+}
+ 
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+/* body
+{ */
+    /* background-color: #18122B; */
+/* } */
+h1{
+    font-family: "Poppins", sans-serif;
+    font-size: 250%;
+    text-align: center;
+    color: white;
+    margin-top: 5%;
+    font-weight: lighter;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ 
+.dashboard{
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+/* Nav Bar Styles */
+.sidebar {
+    position: fixed;
+    width: 15%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100vh;
+    background:#18122B;
+    font-size: 0.75rem;
+  }
+  
+  .nav {
+    position: relative;
+    margin: 0 15%;
+    text-align: right;
+    top: 35%;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+  .nav-list{
+    margin-top:45%;
+  }
+  .nav ul {
+    list-style: none;
+  }
+  .nav ul li {
+    position: relative;
+    margin: 3.2em 0;
+  }
+  .nav ul li a {
+    line-height: 8em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+    transition: all ease-out 300ms;
+  }
+  .nav ul li.active a {
+    color: white;
+  }
+  .nav ul li:not(.active)::after {
+    opacity: 0.2;
+  }
+  .nav ul li:not(.active):hover a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: black;
+    left: 0;
+    bottom: 0;
+    /* background: linear-gradient(0deg, #635985, #443C68 5%, #e4eff8 150%); */
+    background-image: linear-gradient(to right, #ffffff, #443C68);
+  }
+
+
+  /* ==========================
+Media Query 768xp 
+============================= */
+@media only screen and (min-width: 768px){
+
+    section.secondary{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        background-color: #ffffff;
+        padding-top: 70px;
+        /* overflow:auto; */
+    }
+    section.secondary .goal{
+        width: 40%;
+    }
+    section.secondary .categories{
+        width: 55%;
+    }
+    
+}
+
+@media only screen and (min-width: 1024px){
+    .dashboard .navigation,
+    .dashboard .navigation div span,
+    section.secondary{
+        display: block;
+    }
+    .dashboard .navigation{
+        width: 60px;
+        /* position: fixed; */
+        z-index: 10;
+    }
+    section.main{
+        width: 60%;
+        margin-left: 90px;
+        margin-right: 20px;
+    }
+    section.secondary{
+        width: 27%;
+        padding-top: 0px;
+        margin-left:75%;
+        margin-right:0;
+        /* position: fixed; */
+        top: 20px;
+        right: 0px;
+        background-color: transparent;
+    }
+    section.secondary .goal,
+    section.secondary .categories{
+        width: 100%;
+        border-radius: 10px;
+    }
+    .dashboard .navigation div{
+        margin-top: 19vh;
+        margin-bottom: 19vh;
+    }
+    .dashboard .navigation div span{
+        margin-top: 5vh;
+    }
+}
