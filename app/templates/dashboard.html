@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/styledash.css')}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,7 +27,7 @@
                     <aside class="sidebar">
                         <nav class="nav">
                             <ul class="nav-list">
-                                <li class="active"><a href="{{url_for('addtasks')}}">CREATE PROJECT</a></li>
+                                <li><a href="{{url_for('addtasks')}}">CREATE PROJECT</a></li>
                                 <li><a href="{{url_for('add_mem')}}">ADD MEMBER</a></li>
                                 <li><a href="{{url_for('login')}}">LOGOUT</a></li>
                             </ul>
@@ -49,7 +50,7 @@
                         name="taskname">{{c.notation}} : {{c.task_name}}</a></li>
                 {% endfor %}
             </div>
-            <div class="hl">
+            <div class="hl2">
 
             </div>
             <div class="y">
@@ -67,6 +68,36 @@
 
         </div>
         <div class="task">
+          <br>
+          <label class="heading" id="id4" name="n4">Tasks</label>
+          <br>
+          <br>  <br>  <br>
+          <canvas class="c1" id="myChart1"></canvas>
+          <script>
+          var xValues = ["Pending", "In progress","Completed"];
+          var yValues = [4,7,7];
+          var barColors = [
+          "white",
+          "#b6a3f4",
+          "#635985"
+          ];
+
+          new Chart("myChart1", {
+          type: "doughnut",
+          data: {
+              labels: xValues,
+              datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+              }]
+          },
+          options: {
+              title: {
+              display: true,
+              }
+          }
+          });
+          </script>
         </div>
         <div class="vl">
 
@@ -105,11 +136,52 @@
                     });
                 </script>
             </div>
-            <div class="hl">
+            <div class="hl2">
 
             </div>
             <div class="w">
+              <br>
+              <label class="heading" id="id5" name="n5">Task Details Per Member</label>
+              <br>
+              <br>
+              <canvas class="c1" id="myChart3" ></canvas>
 
+                  <script>
+                  var xValues = ["Name1", "Name2", "Name3", "Name4"];
+                  var yValues1 = [55, 49, 44, 24];
+                  var yValues2 = [15, 9, 4, 10];
+                  var yValues3 = [10, 20, 30, 40];
+                  var barColors1= ["#635985", "#635985","#635985","#635985"];
+                  var barColors2=["#b6a3f4","#b6a3f4","#b6a3f4","#b6a3f4"]
+                  var barColors3=["white","white","white","white"];
+                  new Chart("myChart3", {
+
+                  type: "horizontalBar",
+                  data: {
+                      labels: xValues,
+                      datasets: [{
+                      backgroundColor: barColors1,
+                      data: yValues1
+                      },
+                      {
+                      backgroundColor: barColors2,
+                      data: yValues2
+                      },
+                      {
+                      backgroundColor: barColors3,
+                      data: yValues3
+                      }
+                  ]
+                  },
+                  options: {
+                      legend: {display: false},
+                      title: {
+                      display: false,
+                      text: "Percentage completeion"
+                      }
+                  }
+                  });
+                  </script>
             </div>
         </div>
     </div>

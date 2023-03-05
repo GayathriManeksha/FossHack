@@ -75,10 +75,15 @@
 }
 .hl{
     background-color: #635985;
+    margin-left: 20%;
     width: 100%;
     height:  0.1rem;
 }
- 
+.hl2{
+    background-color: #635985;
+    width: 100%;
+    height:  0.1rem;
+}
 
 
 
@@ -140,7 +145,7 @@ h1{
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.3em;
-    color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
     display: block;
     transition: all ease-out 300ms;
   }
@@ -151,7 +156,7 @@ h1{
     opacity: 0.2;
   }
   .nav ul li:not(.active):hover a {
-    color: rgba(255, 255, 255, 0.75);
+    color: #443C68;
   }
   .nav ul li::after {
     content: "";
