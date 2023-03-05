@@ -1,27 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
-body
-{
+
+body {
     background-color: #18122B;
     /* place-items: center; */
-        /* display: grid;
+    /* display: grid;
         text-align: center;
         background: linear-gradient(135deg, black, #18122B, black); */
 }
-.add
-{
+
+.add {
     margin-top: 5%;
     margin-left: 25%;
     width: 50%;
     height: 900px;
-   background: #18122B;
-   border-radius: 10px;
-   padding: 40px 30px;
-   box-shadow: -3px -3px 7px #ffffff73,
-     2px 2px 5px rgba(94, 104, 121, 0.288);
+    background: #18122B;
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: -3px -3px 7px #ffffff73,
+        2px 2px 5px rgba(94, 104, 121, 0.288);
     /* place-items: center; */
     display: grid;
 }
-h1{
+
+.f1 {
+    display: grid;
+}
+
+h1 {
     font-family: "Poppins", sans-serif;
     /* font-size: xx-large; */
     font-size: 250%;
@@ -30,8 +35,8 @@ h1{
     margin-top: 5%;
     font-weight: lighter;
 }
-.tb
-{
+
+.tb {
     background: linear-gradient(0deg, #635985, #443C68 5%, #e4eff8 150%);
     font-family: "Poppins", sans-serif;
     color: white;
@@ -40,7 +45,7 @@ h1{
     font-weight: lighter;
 }
 
-.l1{
+.l1 {
     font-family: "Poppins", sans-serif;
     color: white;
     /* font-size: xx-large; */
@@ -48,21 +53,20 @@ h1{
     font-weight: lighter;
 }
 
-.b1
-{
-  /* color:black; */
-  background: linear-gradient(0deg, #635985, #443C68 5%, #e4eff8 150%);
-  font-family: "Poppins", sans-serif;
-  /* font-size: x-large; */
-  font-size: 200%;
-  margin-top: 20%;
-  margin-left: 43%;
-  margin-right: 45%;
-  color: white;
-  /* color: #18122B; */
-  /* border: none; */
-  cursor: pointer;
-  border-radius: 0.8rem;
-  height: 55px;
-  width:20%;
+.b1 {
+    /* color:black; */
+    background: linear-gradient(0deg, #635985, #443C68 5%, #e4eff8 150%);
+    font-family: "Poppins", sans-serif;
+    /* font-size: x-large; */
+    font-size: 200%;
+    margin-top: 20%;
+    margin-left: 43%;
+    margin-right: 45%;
+    color: white;
+    /* color: #18122B; */
+    /* border: none; */
+    cursor: pointer;
+    border-radius: 0.8rem;
+    height: 55px;
+    width: 20%;
 }

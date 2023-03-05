@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesam.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/styleam.css')}}">
     <title>ADD NEW MEMBER</title>
 </head>
+
 <body>
     <div class="add">
         <h1>
             ADD NEW MEMBER DETAILS
         </h1>
-        <label for="nametm" class="l1">Name</label>
+        <form class="f1" method="post" action="{{url_for('add_mem')}}">
+            <!-- <label for="nametm" class="l1">Name</label>
         <input class="tb" type="text" id="nametm" name="nametm">
-        <br><br>
-        <label for="Username" class="l1">Username</label>
-        <input class="tb" type="text" id="Username" name="Username">
-        <br><br>
-        <label for="password" class="l1">Password</label>
-        <input class="tb" type="text" id="password" name="password">
+        <br><br> -->
+            <label for="Username" class="l1">Username</label>
+            <input class="tb" type="text" id="Username" name="Username">
+            <br><br>
+            <label for="password" class="l1">Password</label>
+            <input class="tb" type="text" id="password" name="password">
 
-        <button class="b1" name="addMem" value="addMem" type="submit">Add Member</button>
+            <button class="b1" name="addMem" value="addMem" type="submit">Add Member</button>
+        </form>
     </div>
 </body>
+
 </html>
