@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>Document</title>
 </head>
+
 <body class="body">
     <div class="small">
         PROJECT DETAILS
@@ -15,96 +17,103 @@
     <div class="hl">
 
     </div>
-    
-    
-        <div class="big">
-            <div class="nave">
-                <div class="dashboard"> 
-                    <section class="navigation"> 
-                      <aside class="sidebar">            
+
+
+    <div class="big">
+        <div class="nave">
+            <div class="dashboard">
+                <section class="navigation">
+                    <aside class="sidebar">
                         <nav class="nav">
-                          <ul class = "nav-list">
-                            <li class="active"><a href="#">CREATE PROJECT</a></li>
-                            <li><a href="#">ADD MEMBER</a></li>
-                            <li><a href="#">LOGOUT</a></li>
-                          </ul>
+                            <ul class="nav-list">
+                                <li class="active"><a href="{{url_for('addtasks')}}">CREATE PROJECT</a></li>
+                                <li><a href="{{url_for('add_mem')}}">ADD MEMBER</a></li>
+                                <li><a href="{{url_for('login')}}">LOGOUT</a></li>
+                            </ul>
                         </nav>
-                      </aside>
-                    </section> 
-                </div> 
+                    </aside>
+                </section>
             </div>
-            <div class="vl">
+        </div>
+        <div class="vl">
+
+        </div>
+        <div class="one">
+            <div class="x">
+                <br>
+                <label class="heading" id="id1" name="n1">Critical Tasks</label>
+                <br>
+                <br>
+                {% for c in critical_points %}
+                <li style="list-style-type: none;"><a href="#" class="heading" style="font-size: 100%;" id="task"
+                        name="taskname">{{c.notation}} : {{c.task_name}}</a></li>
+                {% endfor %}
+            </div>
+            <div class="hl">
 
             </div>
-            <div class="one">
-                <div class="x">
-                    <br>
-                    <label class="heading"  id="id1" name="n1">Critical Tasks</label>
-                    <br>
-                    <br>
-                    <li  style="list-style-type: none;"><a href="#" class="heading" style="font-size: 100%;" id="task" name="taskname">xyz</a></li>
-                    <link>
-                </div>
-                <div class="hl">
-
-                </div>
-                <div class="y">
-                    <br>
-                    <label class="heading" id="id2" name="n2">Team Members</label>
-                    <br>
-                    <br>
-                    <li style="list-style-type: none;"><a href="#" class="heading" style="font-size: 100%;" id="member" name="name">xyz</a></li> 
-                </div>
+            <div class="y">
+                <br>
+                <label class="heading" id="id2" name="n2">Team Members</label>
+                <br>
+                <br>
+                {% for m in members %}
+                <li style="list-style-type: none;"><a href="{{url_for('view_details',user_name=m['username'])}}" class="heading" style="font-size: 100%;" id="member"
+                        name="name">{{m['username']}}</a></li>
+                {% endfor %}
             </div>
-            <div class="vl">
+        </div>
+        <div class="vl">
 
-            </div>
-            <div class="task">
-            </div>
-            <div class="vl">
+        </div>
+        <div class="task">
+        </div>
+        <div class="vl">
 
-            </div>
-            <div class="two">
-                <div class="z">
-                    <br>
-                    <label class="heading" id="id3" name="n3">Percentage Of Completeion</label>
-                    <br>
-                    <br>
-                    <canvas class="c1" id="myChart" ></canvas>
+        </div>
+        <div class="two">
+            <div class="z">
+                <br>
+                <label class="heading" id="id3" name="n3">Percentage Of Completeion</label>
+                <br>
+                <br>
+                <canvas class="c1" id="myChart"></canvas>
 
-                    <script>
-                    var xValues = ["Contracts", "Design", "Procurement", "Categorization"];
+                <script>
+                    // var xValues = ["Contracts", "Design", "Procurement", "Categorization"];
                     var yValues = [55, 49, 44, 24];
-                    var barColors = ["#635985", "#635985","#635985","#635985"];
+                    var xValues = JSON.parse({{ tasknames| tojson}});
+                    var barColors = ["#635985", "#635985", "#635985", "#635985"];
 
                     new Chart("myChart", {
 
-                      type: "horizontalBar",
-                      data: {
+                        type: "horizontalBar",
+                        data: {
                             labels: xValues,
                             datasets: [{
-                              backgroundColor: barColors,
-                              data: yValues
+                                backgroundColor: barColors,
+                                data: yValues
                             }]
                         },
                         options: {
-                          legend: {display: false},
-                          title: {
-                            display: false,
-                            text: "Percentage completeion"
-                             }
-                             }
-                        });
+                            legend: { display: false },
+                            title: {
+                                display: false,
+                                text: "Percentage completeion"
+                            }
+                        }
+                    });
                 </script>
-                </div>
-                <div class="hl">
+            </div>
+            <div class="hl">
 
-                </div>
-                <div class="w">
-                    
-                </div>
+            </div>
+            <div class="w">
+
             </div>
         </div>
-    
+    </div>
+
 </body>
+
 </html>

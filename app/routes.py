@@ -1,4 +1,5 @@
 from flask import Flask, request, flash, url_for, redirect, render_template, json
+from app.cpm  import add_nodes,add_edges,critical_path
 from app import app
 from pymongo import MongoClient
 
@@ -6,6 +7,30 @@ client = MongoClient('localhost', 27017)
 db=client.ProjectManager
 login_data=db.login
 
+def calculate():
+    tasks=[]
+    dependencies=[]
+    db=client.ProjectManager
+    taskdb=db.taskdatabase
+    tasks=taskdb.find()
+
+    addtasks=[]
+    for t in tasks:
+        print(t['notation'] , int(t['duration']))
+        add_nodes(addtasks,t['notation'],int(t['duration']))
+
+    tasks=taskdb.find()
+    dependencies=[]
+    print("HEY")
+    for t in tasks:
+        print(t['notation'],t['predecessor_notn'])
+        if(t['predecessor_notn']!='-'):
+            add_edges(dependencies,t['predecessor_notn'],t['notation'])
+
+    print(dependencies)
+    crit_path=[]
+    result=critical_path(crit_path,dependencies,addtasks)
+    return result
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -28,7 +53,26 @@ def login():
 
 @app.route('/home',methods=['GET'])
 def home():
-    return render_template('dashboard.html')
+    result=calculate()
+    print(result)
+    db=client.ProjectManager
+    Tasks=db.taskdatabase
+    membs=db.members
+
+    all_membs=membs.find()
+    all_tasks=Tasks.find()
+
+    tasks_namelist=[]
+    for t in all_tasks:
+        tasks_namelist.append(t['task_name'])
+    tnl=json.dumps(tasks_namelist)
+
+    cp=[]
+    for r in result[0]:
+        f=Tasks.find_one({"notation":r})
+        cp.append({"notation":r,"task_name":f['task_name']})
+    # cp=json.dumps(result[0])
+    return render_template('dashboard.html',tasknames=tnl,critical_points=cp,members=all_membs)
 
 @app.route('/addtasks',methods=['GET','POST'])
 def addtasks():
